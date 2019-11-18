@@ -56,7 +56,7 @@ public class Chess
                 blacksCount = desk.getFiguresByColor(Figure.Color.BLACK).size();
                 blackTime = 0;
             }
-            if (blackTime > 10 && whiteTime > 10) {
+            if (blackTime > 50 && whiteTime > 50) {
                 System.out.println("Boring game.");
                 break;
             }

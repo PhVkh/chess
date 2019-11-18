@@ -1,1 +1,3 @@
-bin/
+chess/bin/
+chess/target/
+chess/main/test

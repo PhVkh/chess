@@ -3,10 +3,10 @@ import java.util.List;
 
 public class Queen extends Figure
 {
-    Queen(Position pos, boolean color) {
+    Queen(Position pos, Color color) {
         this.setPosition(pos);
         this.setColor(color);
-        symbol = color ? " BQuee " : " WQuee ";
+        symbol = color.isBlack() ? " BQuee " : " WQuee ";
     }
 
     List<Position> moves(Board desk) {

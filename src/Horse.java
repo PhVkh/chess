@@ -3,10 +3,10 @@ import java.util.List;
 
 public class Horse extends Figure
 {
-    Horse(Position pos, boolean color) {
+    Horse(Position pos, Color color) {
         this.setPosition(pos);
         this.setColor(color);
-        symbol = color ? " BHors " : " WHors ";
+        symbol = color.isBlack() ? " BHors " : " WHors ";
     }
 
     List<Position> moves(Board desk) {
@@ -17,7 +17,7 @@ public class Horse extends Figure
                     int x = i * j;
                     int y = (3 - i) * k;
                     Position pos = this.getPosition().change(x, y);
-                    if (pos.isReasonable() && !desk.isBusy(pos, this.getColor())) {
+                    if (pos.isReasonable() && !desk.isBusyByColor(pos, this.getColor())) {
                         positions.add(pos);
                     }
                 }

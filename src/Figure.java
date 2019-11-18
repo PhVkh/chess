@@ -5,14 +5,30 @@ import java.util.List;
 abstract class Figure
 {
     private Position pos;
-    private boolean color;
     String symbol;
 
-    void setColor(boolean color) {
+    enum Color
+    {
+        WHITE(false), BLACK(true);
+        private boolean isBlack;
+        Color(boolean t) {
+            this.isBlack = t;
+        }
+        boolean isBlack() {
+            return isBlack;
+        }
+        Color invertColor() {
+            if (this.equals(Color.WHITE)) return Color.BLACK;
+            return Color.WHITE;
+        }
+    }
+    private Color color;
+
+    void setColor(Color color) {
         this.color = color;
     }
 
-    boolean getColor() {
+    Color getColor() {
         return this.color;
     }
 

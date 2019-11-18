@@ -6,10 +6,10 @@ public class Bishop extends Figure
     Bishop(Position pos, Color color) {
         this.setPosition(pos);
         this.setColor(color);
-        symbol = color.isBlack() ? " BBish " : " WBish ";
+        symbol = color == Color.BLACK ? " BBish " : " WBish ";
     }
 
-    List<Position> moves(Board desk) {
+    public List<Position> moves(Board desk) {
         List<Position> positions = new ArrayList<>();
 
         for (int i = 1; i <= 7; ++i) {

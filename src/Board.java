@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Board
 {
-    List<Figure> figures = new ArrayList<>();
-	
-	void setFigures() {
+    private List<Figure> figures = new ArrayList<>();
+
+    public void initializeFigures() {
 		for (int i = 0; i < 8; ++i) {
             figures.add(new Pawn(new Position(i, 1), Figure.Color.BLACK));
         }
@@ -30,8 +30,11 @@ public class Board
         figures.add(new Queen(new Position(4, 7), Figure.Color.WHITE));
         figures.add(new King(new Position(3, 7), Figure.Color.WHITE));
 	}
-	
-    boolean isBusyByColor(Position position, Figure.Color color) {
+
+	public List<Figure> getFigures() {
+        return figures;
+    }
+    public boolean isBusyByColor(Position position, Figure.Color color) {
         for (Figure f : figures) {
             if (f.getPosition().equals(position) && color == f.getColor()) {
                 return true;
@@ -40,7 +43,7 @@ public class Board
         return  false;
     }
 
-    List<Figure> getFiguresByColor(Figure.Color color) {
+    public List<Figure> getFiguresByColor(Figure.Color color) {
         List<Figure> sameColor= new ArrayList<>();
         for (Figure f : figures) {
             if (f.getColor() == color) {
@@ -50,7 +53,7 @@ public class Board
         return sameColor;
     }
 
-    void printDesk() {
+    public void printDesk() {
         System.out.println("=======================================================");
         for (int i = 0; i < 8; ++i) {
             for (int j = 0; j < 8; ++j) {

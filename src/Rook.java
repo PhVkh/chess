@@ -6,10 +6,10 @@ public class Rook extends Figure
     Rook(Position pos, Color color) {
         this.setPosition(pos);
         this.setColor(color);
-        symbol = color.isBlack() ? " BRook " : " WRook ";
+        symbol = color == Color.BLACK ? " BRook " : " WRook ";
     }
 
-    List<Position> moves(Board desk) {
+    public List<Position> moves(Board desk) {
         List<Position> positions = new ArrayList<>();
 
         for (int i = 1; i <= 7; ++i) {

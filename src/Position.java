@@ -25,11 +25,11 @@ public class Position
         return (this.x == pos.getX() && this.y == pos.getY());
     }
 
-    Position change(int x, int y) {
+    public Position change(int x, int y) {
         return new Position(this.x + x, this.y + y);
     }
 
-    boolean isReasonable() {
+    public boolean isReasonable() {
         return (x >= 0 && x < 8 && y >= 0 && y < 8);
     }
 }

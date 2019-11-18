@@ -9,14 +9,7 @@ abstract class Figure
 
     enum Color
     {
-        WHITE(false), BLACK(true);
-        private boolean isBlack;
-        Color(boolean t) {
-            this.isBlack = t;
-        }
-        boolean isBlack() {
-            return isBlack;
-        }
+        WHITE, BLACK;
         Color invertColor() {
             if (this.equals(Color.WHITE)) return Color.BLACK;
             return Color.WHITE;
@@ -24,33 +17,33 @@ abstract class Figure
     }
     private Color color;
 
-    void setColor(Color color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
-    Color getColor() {
+    public Color getColor() {
         return this.color;
     }
 
-    void setPosition(Position pos) {
+    public void setPosition(Position pos) {
         this.pos = pos;
     }
 
-    Position getPosition() {
+    public Position getPosition() {
         return this.pos;
     }
 
     abstract List<Position> moves(Board desk);
 
-    boolean isMovable(Board desk) {
+    public boolean isMovable(Board desk) {
         return this.moves(desk).size() > 0;
     }
 
-    Position move(Board desk) {
+    public Position move(Board desk) {
         List<Position> moves = this.moves(desk);
         Collections.shuffle(moves);
         Position move = moves.get(0);
-        Iterator itr = desk.figures.iterator();
+        Iterator itr = desk.getFigures().iterator();
 
         while (itr.hasNext()) {
             Figure f = (Figure) itr.next();

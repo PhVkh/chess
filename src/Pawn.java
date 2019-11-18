@@ -7,12 +7,12 @@ public class Pawn extends Figure
     Pawn(Position pos, Color color) {
         this.setPosition(pos);
         this.setColor(color);
-        symbol = color.isBlack() ? " BPawn " : " WPawn ";
+        symbol = color == Color.BLACK ? " BPawn " : " WPawn ";
     }
 
-    List<Position> moves(Board desk) {
+    public List<Position> moves(Board desk) {
         List<Position> positions = new ArrayList<>();
-        int i = this.getColor().isBlack() ? 1 : -1;
+        int i = this.getColor() == Color.BLACK ? 1 : -1;
         if (turn < 1) {
             Position pos = this.getPosition().change(0, 2 * i);
             boolean a = pos.isReasonable();
@@ -42,7 +42,7 @@ public class Pawn extends Figure
         return positions;
     }
 
-    Position move(Board desk) {
+    public Position move(Board desk) {
         Position pos = super.move(desk);
         ++this.turn;
         return pos;

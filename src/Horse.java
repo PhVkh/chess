@@ -6,10 +6,10 @@ public class Horse extends Figure
     Horse(Position pos, Color color) {
         this.setPosition(pos);
         this.setColor(color);
-        symbol = color.isBlack() ? " BHors " : " WHors ";
+        symbol = color == Color.BLACK ? " BHors " : " WHors ";
     }
 
-    List<Position> moves(Board desk) {
+    public List<Position> moves(Board desk) {
         List<Position> positions = new ArrayList<>();
         for (int i = 1; i <= 2; ++i) {
             for (int j = -1; j <= 1; j += 2) {

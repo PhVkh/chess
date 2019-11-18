@@ -28,7 +28,7 @@ public class Chess
 
     public static void main(String[] args) {
         Board desk = new Board();
-		desk.setFigures();
+		desk.initializeFigures();
         desk.printDesk();
 
 
@@ -45,16 +45,16 @@ public class Chess
             }
 
             if (whitesCount == desk.getFiguresByColor(Figure.Color.WHITE).size()) {
-            ++blackTime;
-        } else {
+                ++whiteTime;
+            } else {
                 whitesCount = desk.getFiguresByColor(Figure.Color.WHITE).size();
                 whiteTime = 0;
             }
-            if (whitesCount == desk.getFiguresByColor(Figure.Color.WHITE).size()) {
-            ++whiteTime;
-        } else {
-                whitesCount = desk.getFiguresByColor(Figure.Color.WHITE).size();
-                whiteTime = 0;
+            if (blacksCount == desk.getFiguresByColor(Figure.Color.BLACK).size()) {
+                ++blackTime;
+            } else {
+                blacksCount = desk.getFiguresByColor(Figure.Color.BLACK).size();
+                blackTime = 0;
             }
             if (blackTime > 10 && whiteTime > 10) {
                 System.out.println("Boring game.");

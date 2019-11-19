@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import java.io.IOException;
 
 public class Board
 {
+    final private String URL = "https://creativitygames.net/random-word-generator/randomwords/1";
     private List<Figure> figures = new ArrayList<>();
 
     public void initializeFigures() {
@@ -68,6 +72,12 @@ public class Board
             }
             System.out.println("\n");
         }
-        System.out.println("=======================================================");
+        try {
+            Document page = Jsoup.connect(URL).get();
+            String word = page.select("#randomword_1").text();
+            System.out.println(word);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
